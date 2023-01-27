@@ -33,7 +33,13 @@ int _printf(const char *format, ...)
 	va_end(ptr);
 	return (count);
 }
-
+/**
+  * convert_percent - handles the % character in the string
+  * @count: pointer to number of chars printed
+  * @i: pointer to position in the format string
+  * @format: string to be formatted
+  * @ptr: list of additional arguments
+  */
 void convert_percent(int *count, int *i, const char *format, va_list ptr)
 {
 	int tmp = 0;
@@ -47,8 +53,6 @@ void convert_percent(int *count, int *i, const char *format, va_list ptr)
 	}
 	else if (format[*i + 1] == '\0')
 	{
-		_putchar('%');
-		*count = *count + 1;
 		return;
 	}
 

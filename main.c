@@ -41,7 +41,7 @@ int main(void)
 	_printf("Unknown:[%K]\n");
 	printf("Unknown:[%K]\n");
 
-	_printf("Complete the sentence: You %s nothing, Jon Snow\n", (char *)0);
+	printf("%");
 
 	return (0);
 }
