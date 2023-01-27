@@ -55,7 +55,7 @@ void convert_percent(int *count, int *i, const char *format, va_list ptr)
 		*i = *i + 1;
 		return;
 	}
-	
+
 	if (format[*i + 1] == '\0')
 		return;
 
