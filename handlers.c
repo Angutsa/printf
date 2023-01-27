@@ -21,8 +21,9 @@ int handle_specifier(char c, va_list ptr)
 	case 's':
 		count = convert_s(ptr);
 		break;
-	case '%':
-		/* TODO */
+	case 'd':
+	case 'i':
+		count = convert_d(ptr);
 		break;
 	default:
 		return (-1);
