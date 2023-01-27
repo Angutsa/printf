@@ -10,6 +10,10 @@ int convert_s(va_list ptr)
 	int count = 0, i = 0;
 	char *s = va_arg(ptr, char *);
 
+	if (s == NULL)
+		s = "(null)";
+
+
 	for (; s[i] != '\0'; i++)
 	{
 		_putchar(s[i]);

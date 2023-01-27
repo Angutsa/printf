@@ -4,7 +4,6 @@
   * handle_specifier - prints the formatted string
   * @c: identifier
   * @ptr: va_list of the printf function
-  * 
   * TODO: Handle flag characters, field width, precision, length modifiers
   * and buffers
   * Return: returns the number of characters printed on success and
@@ -13,6 +12,7 @@
 int handle_specifier(char c, va_list ptr)
 {
 	int count = 0;
+
 	switch (c)
 	{
 	case 'c':

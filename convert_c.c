@@ -2,7 +2,6 @@
 
 /**
   * convert_c - handles the format specifier for char
-  * @c: identifier
   * @ptr: va_list from printf
   * Return: number of characters printed
   */

@@ -1,7 +1,6 @@
 #include "main.h"
 
-#define debug_here(i) printf("Here %i\n", i)
-#define debug_char(c) printf("Value -> %c\n", c)
+void convert_percent(int *count, int *i, const char *format, va_list ptr);
 
 /**
   * _printf - produces output according to a format
@@ -11,8 +10,8 @@
 int _printf(const char *format, ...)
 {
 	va_list ptr;
-	int i = 0, count = 0, tmp = 0;
-	
+	int i = 0, count = 0;
+
 	if (format == NULL)
 		return (-1);
 
@@ -27,19 +26,40 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%')
 		{
-			tmp = 0;
-			tmp = handle_specifier(format[i + 1], ptr);
-
-			if (tmp == -1)
-			{
-				_putchar(format[i]);
-				continue;
-			}
-
-			count += tmp;
-			i++;
+			convert_percent(&count, &i, format, ptr);
 		}
 	}
+
 	va_end(ptr);
 	return (count);
+}
+
+void convert_percent(int *count, int *i, const char *format, va_list ptr)
+{
+	int tmp = 0;
+
+	if (format[*i + 1] == '%')
+	{
+		_putchar('%');
+		*count = *count + 1;
+		*i = *i + 1;
+		return;
+	}
+	else if (format[*i + 1] == '\0')
+	{
+		_putchar('%');
+		*count = *count + 1;
+		return;
+	}
+
+	tmp = handle_specifier(format[*i + 1], ptr);
+	if (tmp == -1)
+	{
+		_putchar(format[*i]);
+		*count = *count + 1;
+		return;
+	}
+
+	*count = tmp + *count;
+	*i = *i + 1;
 }
