@@ -26,8 +26,6 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == '%')
 		{
-			if (format[i + i] == '\0')
-				return (-1);
 
 			convert_percent(&count, &i, format, ptr);
 		}
@@ -54,6 +52,9 @@ void convert_percent(int *count, int *i, const char *format, va_list ptr)
 		*i = *i + 1;
 		return;
 	}
+	
+	if (format[*i + 1] == '\0')
+		return;
 
 	tmp = handle_specifier(format[*i + 1], ptr);
 	if (tmp == -1)
