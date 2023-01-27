@@ -43,7 +43,7 @@ int larger_than_ten(int num)
 
 	i = num % 10;
 	num = num / 10;
-	if (num > 10)
+	if (num >= 10)
 	{
 		larger_than_ten(num);
 	}
