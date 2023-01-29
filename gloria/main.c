@@ -41,7 +41,11 @@ int main(void)
 	_printf("Unknown:[%K]\n");
 	printf("Unknown:[%K]\n");
 
-	printf("%");
+	_printf("%d\n", 1024);
+	printf("%d\n", 1024);
+
+	printf("%i\n", 1024);
+	_printf("%i\n", 1024);
 
 	return (0);
 }
