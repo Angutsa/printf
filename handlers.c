@@ -79,7 +79,7 @@ unsigned char handle_length(const char *modifier, char *index)
  * @index: An index counter for the original format string.
  *
  * Return: If a width modifier is matched - its value.
- *
+ */
 int handle_width(va_list args, const char *modifier, char *index)
 {
 	int value = 0;
